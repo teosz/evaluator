@@ -7,8 +7,10 @@ fn runCode(v: ~str)
         let q: ~[&str] = v.split_iter('.').collect();
     
         println!("{:?}" , q[0]);
-        let mut opt: &[~str] = [v, "-o" + v , "-lstdc++"];
-        process_status("gcc" , [v, ~"-lstdc++"]);
+        let mut opt: &[~str] = [v, ~"-o" + q[0] , ~"-lstdc++"];
+        process_status("gcc" , opt);
+        process_status("./" + q[0], []);
+       
   
 }
 fn main()
